@@ -57,7 +57,7 @@ function esSaludo(texto) {
     'buenas tardes',
     'buenas noches',
     'hey',
-  ].includes(normalizado);
+  ].some((saludo) => normalizado === saludo || normalizado.startsWith(`${saludo} `));
 }
 
 function solicitaEliminarFavorito(texto) {

@@ -58,7 +58,7 @@ const RESPUESTA_ELIMINAR_FAVORITO =
   'Eliminar favoritos es una accion exclusiva del usuario. Si quieres borrar uno, hazlo manualmente desde el panel de favoritos.';
 
 const RESPUESTA_SALUDO =
-  'Hola, que hecho historico quieres consultar?';
+  'Hola. Puedo ayudarte de forma amable solo con hechos historicos de history.muffinlabs.com. Dime que hecho historico quieres consultar.';
 
 function normalizarTexto(texto) {
   return (texto || '')
