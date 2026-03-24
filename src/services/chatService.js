@@ -211,11 +211,9 @@ function construirRespuestaEventos(resultado) {
     return 'No encontre hechos historicos relacionados en history.muffinlabs.com para esa consulta.';
   }
 
-  const eventos = resultado.eventos.slice(0, 2).map((evento) => {
-    return `En ${evento.anio}, ${evento.descripcion}`;
-  });
+  const evento = resultado.eventos[0];
 
-  return eventos.join(' ');
+  return `En ${evento.anio}, ${evento.descripcion}`;
 }
 
 async function procesarChat({ mensaje, historial = [], sesionId = null }) {
@@ -267,7 +265,7 @@ async function procesarChat({ mensaje, historial = [], sesionId = null }) {
       const resultado = await consultarEventosHistoricos({
         fecha,
         termino,
-        limite: 2,
+        limite: 1,
       });
 
       respuesta = construirRespuestaEventos(resultado);

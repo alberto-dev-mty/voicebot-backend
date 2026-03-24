@@ -62,6 +62,13 @@ async function crearEventoGuardado({
       nota_usuario
     )
     VALUES ($1, $2, $3, $4, $5, $6, $7)
+    ON CONFLICT (sesion_id, titulo, fecha_evento)
+    DO UPDATE SET
+      descripcion = EXCLUDED.descripcion,
+      fuente = EXCLUDED.fuente,
+      url_fuente = EXCLUDED.url_fuente,
+      nota_usuario = EXCLUDED.nota_usuario,
+      actualizado_en = NOW()
     RETURNING
       id,
       sesion_id,
